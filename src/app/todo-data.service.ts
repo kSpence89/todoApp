@@ -3,7 +3,7 @@ import { Todo } from './todo';
 
 @Injectable()
 export class TodoDataService {
-  lastId: number = 0;
+  lastId = 0;
 
   todos: Todo[] = [];
 
@@ -30,8 +30,8 @@ export class TodoDataService {
   }
 
   // Simulate PUT /todos/:id
-  updateTodoById(id: number, values: Object = {}): Todo {
-    let todo = this.getTodoById(id);
+  updateTodoById(id: number, values: object = {}): Todo {
+    const todo = this.getTodoById(id);
     if (!todo) {
       return null;
     }
@@ -47,8 +47,8 @@ export class TodoDataService {
   }
 
   // Toggle todo complete
-  toggleTodoComplete(todo: Todo){
-    let updatedTodo = this.updateTodoById(todo.id, {
+  toggleTodoComplete(todo: Todo) {
+    const updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete
     });
     return updatedTodo;
